@@ -6,7 +6,7 @@
 - [x] isascii
 - [x] isprint
 - [x] strlen
-- [ ] memset
+- [x] memset
 - [ ] bzero
 - [ ] memcpy
 - [ ] memmove
@@ -14,9 +14,9 @@
 - [ ] strlcat
 - [x] toupper
 - [x] tolower
-- [ ] strchr
-- [ ] strrchr
-- [ ] strncmp
+- [x] strchr
+- [x] strrchr
+- [x] strncmp
 - [ ] memchr
 - [ ] memcmp
 - [ ] strnstr

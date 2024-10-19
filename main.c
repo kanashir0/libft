@@ -23,8 +23,8 @@ int	main(void)
 	r_int = ft_isprint('G');
 	printf("ft_isprint: %d\n", r_int);
 
-	const char *str_len = "cinco";
-	r_size_t = ft_strlen(str_len);
+	const char *strlen = "cinco";
+	r_size_t = ft_strlen(strlen);
 	printf("ft_strlen: %ld\n", r_size_t);
 
 	r_char = ft_toupper('w');
@@ -36,6 +36,31 @@ int	main(void)
 	printf("ft_tolower(G): %c\n", r_char);
 	r_char = ft_tolower('f');
 	printf("ft_tolower(f): %c\n", r_char);
+
+	const char *strchr = "o rato roeu a roupa do rei de roma";
+	strchr = ft_strchr(strchr, 'r');
+	printf("ft_strchr: %s\n", strchr);
+
+	const char *strrchr = "o rato roeu a roupa do rei de roma";
+	strrchr = ft_strrchr(strrchr, 'r');
+	printf("ft_strrchr: %s\n", strrchr);
+
+	const char *strncmp_s1 = "carro";
+	const char *strncmp_s2 = "carrao";
+	size_t	strncmp_n = 5;
+	r_int = ft_strncmp(strncmp_s1, strncmp_s2, strncmp_n);
+	printf("ft_strncmp: %d\n", r_int);
+
+	char memset_buf[20];
+	char *memset_r;
+	size_t	memset_n = 5;
+	memset_r = ft_memset(memset_buf, '#', memset_n);
+	printf("ft_memset: %s\n", memset_r);
+
+	char bzero_buf[5] = "1111\0";
+	size_t bzero_n = 2;
+	ft_bzero(bzero_buf, bzero_n);
+	printf("ft_bzero: %s\n", bzero_buf);
 
 	return (0);
 }

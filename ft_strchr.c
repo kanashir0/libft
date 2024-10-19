@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: login <login@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 13:09:52 by login             #+#    #+#             */
-/*   Updated: 2024/10/19 13:09:53 by login            ###   ########.fr       */
+/*   Created: 2024/10/19 11:54:57 by login             #+#    #+#             */
+/*   Updated: 2024/10/19 11:58:20 by login            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include <stdlib.h>
+
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if ((unsigned char) c == s[i])
+			return ((char *) s + i);
+		i++;
+	}
+	if ((unsigned char) c == s[i])
+		return ((char *) s + i);
+	return (NULL);
 }
