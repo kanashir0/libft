@@ -7,22 +7,22 @@
 - [x] isprint
 - [x] strlen
 - [x] memset
-- [ ] bzero
-- [ ] memcpy
-- [ ] memmove
-- [ ] strlcpy
-- [ ] strlcat
+- [x] bzero
+- [x] memcpy
+- [x] memmove
+- [x] strlcpy
+- [x] strlcat
 - [x] toupper
 - [x] tolower
 - [x] strchr
 - [x] strrchr
 - [x] strncmp
-- [ ] memchr
-- [ ] memcmp
-- [ ] strnstr
-- [ ] atoi
+- [x] memchr
+- [x] memcmp
+- [x] strnstr
+- [x] atoi
 
 ## With malloc
-- [ ] calloc
+- [x] calloc
 - [ ] strdup
 
