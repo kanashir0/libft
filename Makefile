@@ -19,19 +19,24 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 	ft_memcmp.c ft_strnstr.c ft_atoi.c \
 	ft_calloc.c ft_strdup.c
 
+OBJECTS = $(SRCS:%.c=%.o)
+
 NAME = libft.a
 
 MAIN = main.c
 
 all: $(NAME)
 
-$(NAME): $(MAIN)
-	gcc -Wall -Wextra -Werror $(SRCS) -o $(NAME) $(MAIN)
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
+
+%.o: %.c
+	gcc -Wall -Wextra -Werror -c $<
 
 clean:
 	rm -f $(OBJECTS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
