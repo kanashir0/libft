@@ -135,5 +135,9 @@ int	main(void)
 	strdup_r = ft_strdup(strdup_s);
 	printf("ft_strdup: %s\n", strdup_r);
 
+	const char *substr_s = "meu nome eh getulio";
+	char *substr_r;
+	substr_r = ft_substr(substr_s, 4, 4);
+	printf("ft_substr: %s\n", substr_r);
 	return (0);
 }
