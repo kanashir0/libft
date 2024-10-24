@@ -134,10 +134,27 @@ int	main(void)
 	char *strdup_r;
 	strdup_r = ft_strdup(strdup_s);
 	printf("ft_strdup: %s\n", strdup_r);
+	free(strdup_r);
 
 	const char *substr_s = "meu nome eh getulio";
 	char *substr_r;
 	substr_r = ft_substr(substr_s, 4, 4);
 	printf("ft_substr: %s\n", substr_r);
+	free(substr_r);
+
+	const char *strjoin_s1 = "combining ";
+	const char *strjoin_s2 = "powers";
+	char *strjoin_r;
+	strjoin_r = ft_strjoin(strjoin_s1, strjoin_s2);
+	printf("ft_strjoin: %s\n", strjoin_r);
+	free(strjoin_r);
+
+	char const *strtrim_s = "||estou o/ livre||";
+	char const *strtrim_set = "||";
+	char *strtrim_r;
+	strtrim_r = ft_strtrim(strtrim_s, strtrim_set);
+	printf("ft_strtrim: %s\n", strtrim_r);
+	free(strtrim_r);
+
 	return (0);
 }

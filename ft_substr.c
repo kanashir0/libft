@@ -32,8 +32,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (sub == NULL)
 		return (NULL);
 	i = 0;
-	while (i++ < len)
+	while (i < len)
+	{
 		sub[i] = src[i];
+		i++;
+	}
 	sub[i] = '\0';
 	return (sub);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	const char *substr_s = "meu nome eh getulio";
+	char *substr_r;
+	substr_r = ft_substr(substr_s, 4, 4);
+	printf("ft_substr: %s\n", substr_r);
+	return (0);
+}*/
