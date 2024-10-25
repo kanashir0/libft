@@ -12,38 +12,38 @@
 
 #include "libft.h"
 
-int	ft_abs(int n)
+long	ft_abs(long num)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	if (num < 0)
+		return (-num);
+	return (num);
 }
 
-char	ft_get_next_char(int *n)
+char	ft_get_next_char(long *num)
 {
 	char	c;
 
 	c = '0';
-	if (*n == 0)
+	if (*num == 0)
 		return (c);
-	if (*n != 0)
+	if (*num != 0)
 	{
-		c = (ft_abs(*n) % 10) + '0';
-		*n = *n / 10;
+		c = (ft_abs(*num) % 10) + '0';
+		*num = *num / 10;
 	}
 	return (c);
 }
 
-int	ft_get_num_len(int n)
+int	ft_get_num_len(long num)
 {
 	int	len;
 
 	len = 0;
-	if (n < 0)
+	if (num <= 0)
 		len++;
-	while (n != 0)
+	while (num != 0)
 	{
-		n = n / 10;
+		num = num / 10;
 		len++;
 	}
 	return (len);
@@ -53,16 +53,22 @@ char	*ft_itoa(int n)
 {
 	int		len;
 	char	*res;
+	long	num;
 
-	len = ft_get_num_len(n);
+	num = n;
+	len = ft_get_num_len(num);
 	res = (char *)malloc((len + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
 	res[len] = '\0';
-	if (n < 0)
+	if (num < 0)
 		res[0] = '-';
+	if (num == 0)
+		res[0] = '0';
 	len--;
-	while (len >= 0 && n != 0)
+	while (len >= 0 && num != 0)
 	{
-		res[len] = ft_get_next_char(&n);
+		res[len] = ft_get_next_char(&num);
 		len--;
 	}
 	if (len == 1)
@@ -74,7 +80,7 @@ char	*ft_itoa(int n)
 int	main(void)
 {
 	char	*str;
-	int		num = -400;
+	int		num = -2147483648LL;
 
 	str = ft_itoa(num);
 	printf("num: %s\n", str);

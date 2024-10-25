@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: login <login@student.42sp.org.br>          +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 13:09:28 by login             #+#    #+#             */
-/*   Updated: 2024/10/19 13:09:30 by login            ###   ########.fr       */
+/*   Created: 2024/10/25 16:53:52 by gyasuhir          #+#    #+#             */
+/*   Updated: 2024/10/25 16:56:12 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <unistd.h>
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	return (c >= 32 && c <= 126);
+	while (*s)
+	{
+		write(fd, s, sizeof(char));
+		s++;
+	}
 }
