@@ -23,11 +23,15 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+BONUS_SRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
+			 ft_lstlast_bonus.c ft_lstsize_bonus.c \
+			 ft_lstadd_back_bonus.c
+
 OBJECTS = $(SRCS:%.c=%.o)
 
-NAME = libft.a
+BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 
-MAIN = main.c
+NAME = libft.a
 
 all: $(NAME)
 
@@ -36,15 +40,16 @@ $(NAME): $(OBJECTS)
 
 %.o: %.c
 	gcc -Wall -Wextra -Werror -c $<
+	ar rcs $(NAME) $<
+
+bonus: all $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-debug:
-	gcc -g3 -Wall -Wextra -Werror $(SRCS) -o $(NAME) $(MAIN)
 
