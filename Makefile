@@ -43,7 +43,7 @@ $(NAME): $(OBJECTS)
 	gcc -Wall -Wextra -Werror -c $< $(NAME:%.a=%.h)
 	ar rcs $(NAME) $@
 
-bonus: all $(BONUS_OBJS)
+bonus: $(BONUS_OBJS)
 
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJS)
