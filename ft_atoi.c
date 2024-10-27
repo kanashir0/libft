@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: login <login@student.42sp.org.br>          +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 15:25:49 by login             #+#    #+#             */
-/*   Updated: 2024/10/25 18:08:11 by gyasuhir         ###   ########.fr       */
+/*   Created: 2024/10/27 10:28:17 by gyasuhir          #+#    #+#             */
+/*   Updated: 2024/10/27 10:31:05 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * negative);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	const char *str = "\t\n\r\v\f  469 \n";
-	int	i;
-
-	i = ft_atoi(str);
-	printf("%d\n", i);
-	return (0);
-}*/

@@ -6,13 +6,13 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:12:04 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/23 15:16:31 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/27 10:34:18 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_free_arr(char **arr)
+static void	*ft_free_arr(char **arr)
 {
 	int	i;
 
@@ -26,7 +26,8 @@ void	*ft_free_arr(char **arr)
 	return (NULL);
 }
 
-char const	*ft_get_next_word(char **arr, char const *s, char c, int len)
+static char const	*ft_get_next_word(
+	char **arr, char const *s, char c, int len)
 {
 	int	i;
 	int	j;
@@ -50,7 +51,7 @@ char const	*ft_get_next_word(char **arr, char const *s, char c, int len)
 	return (s);
 }
 
-int	ft_get_next_len(char const *s, char c)
+static int	ft_get_next_len(char const *s, char c)
 {
 	int	len;
 	int	i;
@@ -67,7 +68,7 @@ int	ft_get_next_len(char const *s, char c)
 	return (len);
 }
 
-int	ft_count_word(char const *s, char c)
+static int	ft_count_word(char const *s, char c)
 {
 	int	wc;
 	int	i;
@@ -94,6 +95,8 @@ char	**ft_split(char const *s, char c)
 	int		arr_size;
 	int		len;
 
+	if (s == NULL)
+		return (NULL);
 	arr_size = ft_count_word(s, c);
 	arr = (char **) malloc((arr_size + 1) * sizeof(char *));
 	if (arr == NULL)
@@ -110,14 +113,12 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int	main(void)
 {
-	int	i;
+	long unsigned int	i;
 	char **arr;
-	//char const *str = " 5   partes  do exodia >:( ";
-	char const *str = "";
-
+	char const *str = "hello!";
 	arr = ft_split(str, ' ');
 	i = 0;
-	while (i < 5)
+	while (arr[i] != NULL)
 	{
 		printf("%s\n", arr[i]);
 		i++;

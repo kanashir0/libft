@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:18:10 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/25 16:28:18 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/27 10:34:53 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	}
 	return ;
 }
-/*
-void	ft_up(unsigned int i, char *c)
-{
-	*c = (*c) + i;
-	return ;
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	char *str = "aaaaa";
-	ft_striteri(str, &ft_up);
-	printf("%s\n", str);
-	return (0);
-}*/

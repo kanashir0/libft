@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:12:02 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/25 17:15:14 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/27 10:33:28 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nbr;
+	long	nbr;
 
-	nbr = ft_itoa(n);
-	ft_putstr_fd(nbr, fd);
+	nbr = n;
+	if (nbr < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr *= -1;
+	}
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((nbr % 10) + '0', fd);
 	return ;
 }
 /*
 int	main(void)
 {
-	ft_putnbr_fd(-420, 1);
+	int i = 0;
+	ft_putnbr_fd(i, 1);
 	return (0);
 }*/

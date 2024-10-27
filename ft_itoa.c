@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: login <login@student.42sp.org.br>          +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 12:38:12 by login             #+#    #+#             */
-/*   Updated: 2024/10/24 12:42:34 by login            ###   ########.fr       */
+/*   Created: 2024/10/27 10:29:52 by gyasuhir          #+#    #+#             */
+/*   Updated: 2024/10/27 10:30:47 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_abs(long num)
+static long	ft_abs(long num)
 {
 	if (num < 0)
 		return (-num);
 	return (num);
 }
 
-char	ft_get_next_char(long *num)
+static char	ft_get_next_char(long *num)
 {
 	char	c;
 
@@ -34,7 +34,7 @@ char	ft_get_next_char(long *num)
 	return (c);
 }
 
-int	ft_get_num_len(long num)
+static int	ft_get_num_len(long num)
 {
 	int	len;
 
@@ -75,14 +75,3 @@ char	*ft_itoa(int n)
 		res[0] = '-';
 	return (res);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	*str;
-	int		num = -2147483648LL;
-
-	str = ft_itoa(num);
-	printf("num: %s\n", str);
-	return (0);
-}*/

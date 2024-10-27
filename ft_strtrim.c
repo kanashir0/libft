@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: login <login@student.42sp.org.br>          +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:43:28 by login             #+#    #+#             */
-/*   Updated: 2024/10/23 11:01:21 by login            ###   ########.fr       */
+/*   Created: 2024/10/27 10:36:23 by gyasuhir          #+#    #+#             */
+/*   Updated: 2024/10/27 10:36:35 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	to_trim(char c, char const *set)
+static int	to_trim(char c, char const *set)
 {
 	while (*set)
 	{

@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:27:55 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/21 20:30:04 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/27 10:36:46 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	const char *substr_s = "meu nome eh getulio";
-	char *substr_r;
-	substr_r = ft_substr(substr_s, 4, 4);
-	printf("ft_substr: %s\n", substr_r);
-	return (0);
-}*/
