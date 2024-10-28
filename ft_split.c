@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:12:04 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/28 17:23:17 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:58:03 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_get_next_len(char const *s, char c)
 	return (len);
 }
 
-static char *ft_get_next_word(char const *s, char c)
+static char	*ft_get_next_word(char const *s, char c)
 {
 	char	*str;
 	int		len;
@@ -98,19 +98,3 @@ char	**ft_split(char const *s, char c)
 	arr[i] = NULL;
 	return (arr);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	long unsigned int	i;
-	char **arr;
-	char const *str = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
-	arr = ft_split(str, ' ');
-	i = 0;
-	while (arr[i] != NULL)
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
-	return (0);
-}*/

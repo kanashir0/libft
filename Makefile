@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/19 11:50:51 by gyasuhir          #+#    #+#              #
-#    Updated: 2024/10/27 09:46:53 by gyasuhir         ###   ########.fr        #
+#    Updated: 2024/10/28 18:26:22 by gyasuhir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -c $< $(NAME:%.a=%.h)
+	cc -Wall -Wextra -Werror -c $< $(NAME:%.a=%.h)
 	ar rcs $(NAME) $@
 
 bonus: $(BONUS_OBJS)
@@ -53,3 +53,4 @@ fclean: clean
 
 re: fclean all
 
+.PHONY: all bonus clean fclean re
