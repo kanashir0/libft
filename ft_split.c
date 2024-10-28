@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:12:04 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/27 10:34:18 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:23:17 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,46 +26,27 @@ static void	*ft_free_arr(char **arr)
 	return (NULL);
 }
 
-static char const	*ft_get_next_word(
-	char **arr, char const *s, char c, int len)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (arr[i])
-		i++;
-	arr[i] = (char *)malloc((len + 1) * sizeof(char));
-	if (arr[i] == NULL)
-		return (ft_free_arr(arr));
-	while (*s && *s == c)
-		s++;
-	j = 0;
-	while (*s && *s != c)
-	{
-		arr[i][j] = *s;
-		s++;
-		j++;
-	}
-	arr[i][j] = '\0';
-	return (s);
-}
-
 static int	ft_get_next_len(char const *s, char c)
 {
 	int	len;
-	int	i;
 
 	len = 0;
-	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i] && s[i] != c)
-	{
+	while (s[len] && s[len] != c)
 		len++;
-		i++;
-	}
 	return (len);
+}
+
+static char *ft_get_next_word(char const *s, char c)
+{
+	char	*str;
+	int		len;
+
+	len = ft_get_next_len(s, c);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	ft_strlcpy(str, s, len + 1);
+	return (str);
 }
 
 static int	ft_count_word(char const *s, char c)
@@ -92,21 +73,29 @@ static int	ft_count_word(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		arr_size;
-	int		len;
+	int		i;
 
 	if (s == NULL)
 		return (NULL);
-	arr_size = ft_count_word(s, c);
-	arr = (char **) malloc((arr_size + 1) * sizeof(char *));
+	arr = (char **) malloc((ft_count_word(s, c) + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
+	i = 0;
 	while (*s)
 	{
-		len = ft_get_next_len(s, c);
-		s = ft_get_next_word(arr, s, c, len);
+		while (*s && *s == c)
+			s++;
+		if (*s)
+		{
+			arr[i] = ft_get_next_word(s, c);
+			if (arr[i] == NULL)
+				return (ft_free_arr(arr));
+			i++;
+		}
+		while (*s && *s != c)
+			s++;
 	}
-	arr[arr_size] = NULL;
+	arr[i] = NULL;
 	return (arr);
 }
 /*
@@ -115,7 +104,7 @@ int	main(void)
 {
 	long unsigned int	i;
 	char **arr;
-	char const *str = "hello!";
+	char const *str = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
 	arr = ft_split(str, ' ');
 	i = 0;
 	while (arr[i] != NULL)
