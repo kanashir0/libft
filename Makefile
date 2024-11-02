@@ -6,7 +6,7 @@
 #    By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/19 11:50:51 by gyasuhir          #+#    #+#              #
-#    Updated: 2024/10/28 18:26:22 by gyasuhir         ###   ########.fr        #
+#    Updated: 2024/11/02 11:54:21 by gyasuhir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 
 %.o: %.c
-	cc -Wall -Wextra -Werror -c $< $(NAME:%.a=%.h)
-	ar rcs $(NAME) $@
+	@cc -Wall -Wextra -Werror -c $< $(NAME:%.a=%.h)
+	@ar rcs $(NAME) $@
 
 bonus: all $(BONUS_OBJS)
 

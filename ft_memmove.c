@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:35:37 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/20 10:47:58 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:50:44 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*cdest;
 	unsigned char	*csrc;
 
-	if (!dest || !src)
-		return (NULL);
+	if (src == dest)
+		return (dest);
 	cdest = (unsigned char *) dest;
 	csrc = (unsigned char *) src;
 	if (dest <= src)

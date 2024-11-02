@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 09:47:20 by gyasuhir          #+#    #+#             */
-/*   Updated: 2024/10/27 10:18:51 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2024/11/02 12:02:43 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*new_node;
+	void	*value;
 
-	if (lst == NULL || del == NULL)
+	if (lst == NULL || del == NULL || f == NULL)
 		return (NULL);
 	new_lst = NULL;
 	while (lst != NULL)
 	{
-		if (f == NULL)
-			new_node = ft_lstnew(lst->content);
-		else
-			new_node = ft_lstnew((*f)(lst->content));
+		value = (*f)(lst->content);
+		new_node = ft_lstnew(value);
 		if (new_node == NULL)
 		{
+			del(value);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
